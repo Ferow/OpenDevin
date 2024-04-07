@@ -24,6 +24,9 @@
   <a href="https://github.com/OpenDevin/OpenDevin/stargazers"><img src="https://img.shields.io/github/stars/opendevin/opendevin?style=for-the-badge" alt="Stargazers"></a>
   <a href="https://github.com/OpenDevin/OpenDevin/issues"><img src="https://img.shields.io/github/issues/opendevin/opendevin?style=for-the-badge" alt="Issues"></a>
   <a href="https://github.com/OpenDevin/OpenDevin/blob/main/LICENSE"><img src="https://img.shields.io/github/license/opendevin/opendevin?style=for-the-badge" alt="MIT License"></a>
+  </br>
+  <a href="https://join.slack.com/t/opendevin/shared_invite/zt-2etftj1dd-X1fDL2PYIVpsmJZkqEYANw"><img src="https://img.shields.io/badge/Slack-Join%20Us-red?logo=slack&logoColor=white&style=for-the-badge" alt="Join our Slack community"></a>
+  <a href="https://discord.gg/mBuDGRzzES"><img src="https://img.shields.io/badge/Discord-Join%20Us-purple?logo=discord&logoColor=white&style=for-the-badge" alt="Join our Discord community"></a>
 </div>
 
 <!-- PROJECT LOGO -->
@@ -114,38 +117,47 @@ Getting started with the OpenDevin project is incredibly easy. Follow these simp
 
 ### 1. Requirements
 * Linux, Mac OS, or [WSL on Windows](https://learn.microsoft.com/en-us/windows/wsl/install)
-* [Docker](https://docs.docker.com/engine/install/)
+* [Docker](https://docs.docker.com/engine/install/)(For those on MacOS, make sure to allow the default Docker socket to be used from advanced settings!)
 * [Python](https://www.python.org/downloads/) >= 3.11
-* [NodeJS](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) >= 14.8
+* [NodeJS](https://nodejs.org/en/download/package-manager) >= 18.17.1
+* [Poetry](https://python-poetry.org/docs/#installing-with-the-official-installer) >= 1.8
 
-### 2. Build and Setup
+### 2. Build and Setup The Environment
 
 - **Build the Project:** Begin by building the project, which includes setting up the environment and installing dependencies. This step ensures that OpenDevin is ready to run smoothly on your system.
     ```bash
     make build
     ```
 
-- **Setup the Environment:** With just one command, configure OpenDevin by providing essential details such as the LLM API key, LLM Model name, and workspace directory. This straightforward setup process ensures that OpenDevin is tailored to your specific requirements.
-    ```bash
-    make setup-config
-    ```
+### 3. Configuring the Language Model
 
-You'll need to choose your LLM model as part of this step. By default, we use OpenAI's gpt-4, but you can
-use Anthropic's Claude, ollama, or any other LLM provider supported by LiteLLM. See the full
-list of supported models at [docs.litellm.ai/docs/providers](https://docs.litellm.ai/docs/providers).
+OpenDevin supports a diverse array of Language Models (LMs) through the powerful [litellm](https://docs.litellm.ai) library. By default, we've chosen the mighty GPT-4 from OpenAI as our go-to model, but the world is your oyster! You can unleash the potential of Anthropic's suave Claude, the enigmatic Llama, or any other LM that piques your interest.
 
-(Note: alternative models can be hard to work with. We will make LLM-specific available documentation available soon.
-If you've gotten OpenDevin working with a model other than OpenAI's GPT models,
-please [add your setup instructions here](https://github.com/OpenDevin/OpenDevin/issues/417).)
+To configure the LM of your choice, follow these steps:
 
-### 3. Run the Application
+1. **Using the Makefile: The Effortless Approach**
+   With a single command, you can have a smooth LM setup for your OpenDevin experience. Simply run:
+   ```bash
+   make setup-config
+   ```
+   This command will prompt you to enter the LLM API key and model name, ensuring that OpenDevin is tailored to your specific needs.
+
+2. **Manual Config: The Artisanal Touch**
+   If you're feeling particularly adventurous, you can manually update the `config.toml` file located in the project's root directory. Here, you'll find the `llm_api_key` and `llm_model_name` fields, where you can set the LM of your choosing.
+
+**Note on Alternative Models:**
+Some alternative models may prove more challenging to tame than others. Fear not, brave adventurer! We shall soon unveil LLM-specific documentation to guide you on your quest. And if you've already mastered the art of wielding a model other than OpenAI's GPT, we encourage you to [share your setup instructions with us](https://github.com/OpenDevin/OpenDevin/issues/417).
+
+For a full list of the LM providers and models available, please consult the [litellm documentation](https://docs.litellm.ai/docs/providers).
+
+### 4. Run the Application
 
 - **Run the Application:** Once the setup is complete, launching OpenDevin is as simple as running a single command. This command starts both the backend and frontend servers seamlessly, allowing you to interact with OpenDevin without any hassle.
     ```bash
     make run
     ```
 
-### 4. Individual Server Startup
+### 5. Individual Server Startup
 
 - **Start the Backend Server:** If you prefer, you can start the backend server independently to focus on backend-related tasks or configurations.
     ```bash
@@ -157,7 +169,7 @@ please [add your setup instructions here](https://github.com/OpenDevin/OpenDevin
     make start-frontend
     ```
 
-### 5. Help
+### 6. Help
 
 - **Get Some Help:** Need assistance or information on available targets and commands? The help command provides all the necessary guidance to ensure a smooth experience with OpenDevin.
     ```bash
@@ -203,7 +215,12 @@ For details, please check [this document](./CONTRIBUTING.md).
 
 ## 🤖 Join Our Community
 
-Join our Slack workspace by filling out the [form](https://forms.gle/758d5p6Ve8r2nxxq6). Stay updated on OpenDevin's progress, share ideas, and collaborate with fellow enthusiasts and experts. Let's simplify software engineering together!
+Now we have both Slack workspace for the collaboration on building OpenDevin and Discord server for discussion about anything related, e.g., this project, LLM, agent, etc. 
+
+* [Slack workspace](https://join.slack.com/t/opendevin/shared_invite/zt-2etftj1dd-X1fDL2PYIVpsmJZkqEYANw)
+* [Discord server](https://discord.gg/mBuDGRzzES)
+
+If you would love to contribute, feel free to join our community (note that now there is no need to fill in the [form](https://forms.gle/758d5p6Ve8r2nxxq6)). Let's simplify software engineering together!
 
 🐚 **Code less, make more with OpenDevin.**
 
